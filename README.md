@@ -41,44 +41,58 @@ Step-5 )  Install Docker
   
   
 Step-6 )  To run docker without sudo:
-sudo groupadd docker
-sudo usermod -aG docker $USER
+	sudo groupadd docker
+	sudo usermod -aG docker $USER
+	
+	
 Step-7) Install Docker Compose
 
 Install docker-compose in a separate directory
+	
 	mkdir software
 	cd software
 Step-8 ) To get the latest release of Docker Compose, go to https://github.com/docker/compose and download the release for your OS.
 
-wget https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -O docker-compose
+	wget https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -O docker-compose
 
 Step-9 ) Make it executable
+
 	chmod +x docker-compose
 
 
 Step-10 ) Add to the software directory to PATH. Open the .bashrc file with nano:
+
 	nano ~/.bashrc
 
 In .bashrc, add the following line:
+
 	export PATH="${HOME}/software:${PATH}"
 
 Save it and run the following to make sure the changes are applied:
+
 	source .bashrc
+	
 Step-11 ) Run Docker
+
 	docker run hello-world
 
 If you get docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/create": dial unix /var/run/docker.sock: connect: permission denied. error, restart your VM instance.
 Note: If you get It is required that your private key files are NOT accessible by others. This private key will be ignored. error, you should change permits on the downloaded file to protect your private key:
+
 	chmod 400 name-of-your-private-key-file.pem
 
 Step-12 ) Make sure everything is working as expected otherwise repeact the steps.
 
 ############################################################################
+
 For Running the Notebooks/ Python Script ---
+
 Note --> we will use the Python 3.9 version
+
 1 ) Clone the repository from github into the EC2 instance
 2) Now we will use the Visual Studio code editor for the workflow.
 3) make sure to use the port forwarding so we can run the jupyter notebook on our local system.
+ 
 Note – For any doubt related to setting up the environment,please watch the week-1 video (MLOps Zoomcamp 1.2 - Environment preparation )
  
 
